@@ -1,0 +1,16 @@
+on:
+  workflow_dispatch:
+
+env:
+  AZURE_WEBAPP_NAME: your-app-name    # set this to your application's name
+  AZURE_WEBAPP_PACKAGE_PATH: '.'      # set this to the path to your web app project, defaults to the repository root
+  NODE_VERSION: '16.x'                # set this to the node version to use
+
+jobs:
+  build:
+    runs-on: [self-hosted, linux, x64]
+    steps:
+    - uses: actions/checkout@v3
+
+    - name: install azure cli
+      run: curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash
