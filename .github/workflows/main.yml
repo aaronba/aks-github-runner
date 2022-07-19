@@ -38,19 +38,19 @@ jobs:
           echo "::set-output name=account_key::$ACCOUNT_KEY"
 
       # Create AKS Cluster
-      - uses: gambtho/aks_create_action@main
-        with:
-          CLUSTER_NAME: ${{ env.CLUSTER_NAME }}
-          RESOURCE_GROUP_NAME: ${{ secrets.RESOURCE_GROUP_NAME }}
-          STORAGE_ACCOUNT_NAME: ${{ steps.setup_storage.outputs.storage_account_name }}
-          STORAGE_CONTAINER_NAME: ${{ steps.setup_storage.outputs.container_name }}
-          STORAGE_ACCESS_KEY: ${{ steps.setup_storage.outputs.account_key }}
-          ARM_CLIENT_ID: ${{ secrets.CLIENT_ID }}
-          ARM_CLIENT_SECRET: ${{ secrets.CLIENT_SECRET }}
-          ARM_SUBSCRIPTION_ID: ${{ secrets.SUBSCRIPTION_ID }}
-          ARM_TENANT_ID: ${{ secrets.TENANT_ID }}
-          ACTION_TYPE: create
-          CREATE_ACR: true
+      #- uses: gambtho/aks_create_action@main
+      #  with:
+      #    CLUSTER_NAME: ${{ env.CLUSTER_NAME }}
+      #    RESOURCE_GROUP_NAME: ${{ secrets.RESOURCE_GROUP_NAME }}
+      #    STORAGE_ACCOUNT_NAME: ${{ steps.setup_storage.outputs.storage_account_name }}
+      #    STORAGE_CONTAINER_NAME: ${{ steps.setup_storage.outputs.container_name }}
+      #    STORAGE_ACCESS_KEY: ${{ steps.setup_storage.outputs.account_key }}
+      #    ARM_CLIENT_ID: ${{ secrets.CLIENT_ID }}
+      #    ARM_CLIENT_SECRET: ${{ secrets.CLIENT_SECRET }}
+      #    ARM_SUBSCRIPTION_ID: ${{ secrets.SUBSCRIPTION_ID }}
+      #    ARM_TENANT_ID: ${{ secrets.TENANT_ID }}
+      #    ACTION_TYPE: create
+      #    CREATE_ACR: true
 
       - name: Build and push Github Runner image
         run: |
